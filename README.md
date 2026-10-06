@@ -50,7 +50,27 @@ Actions):
 
 Then push to `main`, or run the workflow manually from the Actions tab.
 
+### Netlify
+
+Site: `react-pages-demo` (team `testopenrout1212`), served at
+`https://react-pages-demo.netlify.app`.
+
+`netlify.toml` sets the build command and publish dir, and sets `BASE_PATH=/`
+for the build environment, so Netlify builds at the domain root.
+
+**CI (GitHub Actions):** `.github/workflows/deploy-netlify.yml` builds and
+deploys on every push to `main`. Add one repository secret:
+
+- `NETLIFY_AUTH_TOKEN` — a Netlify personal access token
+  (Netlify -> User settings -> Applications -> Personal access tokens)
+
+The site ID is set in the workflow. Then push to `main`, or run the workflow
+from the Actions tab.
+
+**Or link the repo in Netlify:** in the Netlify dashboard, open the project ->
+Build & deploy -> link the repository. `netlify.toml` supplies the settings.
+
 > Note: `vite.config.js` defaults `base` to `/react-pages-demo/` for GitHub
-> Pages' project subpath. Cloudflare Pages serves from the domain root, so the
-> build there sets `BASE_PATH=/`. For a local Cloudflare build use
-> `BASE_PATH=/ npm run build`.
+> Pages' project subpath. Cloudflare Pages and Netlify both serve from the
+> domain root, so their builds set `BASE_PATH=/`. For a local build aimed at a
+> root-served host use `BASE_PATH=/ npm run build`.
