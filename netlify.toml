@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Netlify serves from the domain root, not a subpath.
+  BASE_PATH = "/"
