@@ -1,0 +1,146 @@
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: #0b1020;
+  color: #e8ecf5;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  background:
+    radial-gradient(60rem 30rem at 50% -10%, rgba(99, 102, 241, 0.35), transparent 70%),
+    #0b1020;
+}
+
+.hero {
+  max-width: 44rem;
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: #a5b4fc;
+  border: 1px solid rgba(165, 180, 252, 0.35);
+  background: rgba(99, 102, 241, 0.12);
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  margin: 1.2rem 0 0.8rem;
+  line-height: 1.05;
+}
+
+.plus {
+  color: #818cf8;
+}
+
+.subtitle {
+  color: #9aa4b8;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 34rem;
+}
+
+.counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 2.2rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.counter button {
+  width: 2.6rem;
+  height: 2.6rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #1a2138;
+  color: #e8ecf5;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.counter button:hover {
+  background: #232c4a;
+}
+
+.counter button:active {
+  transform: scale(0.96);
+}
+
+.count {
+  min-width: 2.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.hint {
+  color: #7c869c;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 56rem;
+}
+
+.card {
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  color: #c7d2fe;
+}
+
+.card p {
+  margin: 0;
+  color: #9aa4b8;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+.footer a {
+  color: #a5b4fc;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.footer a:hover {
+  border-bottom-color: #a5b4fc;
+}
