@@ -1,16 +1,56 @@
-# React + Vite
+# react-pages-demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A small React + Vite single-page app, deployed to static hosting.
 
-Currently, two official plugins are available:
+## Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev      # local dev server
+npm run build    # production build -> dist/
+npm run preview  # preview the production build
+```
 
-## React Compiler
+## Deployment
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The built site in `dist/` is a plain static bundle and can be served anywhere.
 
-## Expanding the Oxlint configuration
+### GitHub Pages
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Live at https://animeshdinda12-netizen.github.io/react-pages-demo/
+
+`vite.config.js` sets `base: '/react-pages-demo/'` so assets resolve under the
+project subpath. The build output is published to the `gh-pages` branch, and
+Pages is configured to serve from that branch.
+
+### Cloudflare Pages
+
+Two options.
+
+**CLI (from your machine):**
+
+```bash
+npm run build
+npx wrangler pages project create react-pages-demo --production-branch=main
+npx wrangler pages deploy dist --project-name=react-pages-demo
+```
+
+Requires a Cloudflare API token with **Cloudflare Pages: Edit** and your account
+ID, provided via the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`
+environment variables. Do not commit these values.
+
+**CI (GitHub Actions):**
+
+`.github/workflows/deploy-cloudflare.yml` builds and deploys on every push to
+`main`. Add these repository secrets (Settings -> Secrets and variables ->
+Actions):
+
+- `CLOUDFLARE_API_TOKEN` — a token with Cloudflare Pages: Edit
+- `CLOUDFLARE_ACCOUNT_ID` — your Cloudflare account ID
+
+Then push to `main`, or run the workflow manually from the Actions tab.
+
+> Note: `vite.config.js` defaults `base` to `/react-pages-demo/` for GitHub
+> Pages' project subpath. Cloudflare Pages serves from the domain root, so the
+> build there sets `BASE_PATH=/`. For a local Cloudflare build use
+> `BASE_PATH=/ npm run build`.

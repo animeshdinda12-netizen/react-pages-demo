@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:cf": "BASE_PATH=/ vite build",
+    "deploy:cf": "npm run build:cf && wrangler pages deploy dist --project-name=react-pages-demo",
     "lint": "oxlint",
     "preview": "vite preview"
   },
@@ -18,6 +20,7 @@
     "@types/react-dom": "^19.2.7",
     "@vitejs/plugin-react": "^6.1.1",
     "oxlint": "^1.81.0",
-    "vite": "^8.3.0"
+    "vite": "^8.3.0",
+    "wrangler": "^4.86.0"
   }
 }
